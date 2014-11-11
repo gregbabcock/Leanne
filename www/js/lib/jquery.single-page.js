@@ -61,7 +61,7 @@ define(["jquery", "bootstrap"], function (jQuery) {
             //Animate
             jQuery('html, body').stop().animate({
                 scrollTop: jQuery(jQuery(this).attr('href')).offset().top - nOffset
-            }, 2450);
+            },2450);
             return true;
         });
 

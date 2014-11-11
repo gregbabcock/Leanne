@@ -9,20 +9,42 @@ body {
     background-color: #ffffff;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
 }
-#home {padding: 1em 1em 2em;
+.carousel-control.right {
+    background-color: #ffffff
+.mycarousel {
+    background-color: #ffffff
+}
+}
+#home {padding: 0em 1em 0em;
 }
 .carousel h2 {
     margin: 0;
-    color: #666;
-    padding-top: 70px;
-    font-size: 52px;
+    color: #555;
+    padding-top: 0px;
+    font-size: 44px;
     font-family: "trebuchet ms", sans-serif;
 }
-.item {
-    background: #333;
-    text-align: center;
-    height: 270px !important;
+.carousel h3 {
+    margin: 0;
+    color: #555;
+    padding-top: 10px;
+    font-size: 32px;
+    font-family: "trebuchet ms", sans-serif;
 }
+.carousel p {
+    margin: 0;
+    color: #666;
+    padding-top: 10px;
+    font-size: 14px;
+    font-family: ""Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.item {
+    background: #ffffff;
+    text-align: center;
+    height: 140px !important;
+}
+
+.navbar{background-color: #ffffff}
 
 input[type*="text"],
 input[type*="email"],
@@ -39,3 +61,4 @@ textarea {
 .navbar-nav.navbar-right:last-child {
 margin-right: 0;
 }
+
