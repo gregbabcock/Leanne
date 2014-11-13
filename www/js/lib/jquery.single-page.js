@@ -1,25 +1,24 @@
-define(["jquery", "bootstrap"], function (jQuery) {
+define(["jquery", "bootstrap", "history"], function (jQuery) {
     jQuery.fn.singlePage = function () {
         // Check the initial Position of the Sticky Header
         var stickyHeader = this;
         var stickyHeaderTop = stickyHeader.offset().top;
         var stickyHeaderHeight = this.outerHeight(true);
 
-        function toggleHeader() {
+        function toggleHeader(bFixed) {
+            if(typeof bFixed == "undefined")bFixed = false;
             stickyHeader.width(stickyHeader.parent().width());
             var nTop = jQuery(window).scrollTop();
-            if (nTop > stickyHeaderTop) {
+            if (bFixed || (nTop > stickyHeaderTop && stickyHeader.css("position") != "fixed")) {
                 stickyHeader.css({
                     position: 'fixed',
                     top: '0px'
                 });
-                jQuery('#stickyalias').css('display', 'block');
-            } else {
+            } else if (nTop <= stickyHeaderTop && stickyHeader.css("position") == "fixed"){
                 stickyHeader.css({
                     position: 'static',
                     top: '0px'
                 });
-                jQuery('#stickyalias').css('display', 'none');
             }
             return nTop;
 
@@ -56,13 +55,17 @@ define(["jquery", "bootstrap"], function (jQuery) {
 
         stickyHeader.find('a').click(function () {
             var nOffset = stickyHeaderHeight;
+            var sHash = jQuery(this).attr('href');
+            var nDivOffset = jQuery(sHash).offset().top;
+            var bFixed = stickyHeader.css('position') == "fixed";
             // first lets see if the stickyHeader is static
-            if (stickyHeader.css('position') != "fixed") nOffset *= 2;
+            if (!bFixed) nOffset *= 2;
             //Animate
             jQuery('html, body').stop().animate({
-                scrollTop: jQuery(jQuery(this).attr('href')).offset().top - nOffset
-            }, 2450);
-            return true;
+                scrollTop:  nDivOffset - nOffset
+            }, 2200);
+            History.pushState(null, null, sHash);
+            return false;
         });
 
         sHash = window.location.hash;
@@ -78,4 +81,3 @@ define(["jquery", "bootstrap"], function (jQuery) {
 
     };
 });
-

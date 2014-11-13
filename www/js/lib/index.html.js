@@ -20,11 +20,11 @@ define(["jquery", "bootstrap", "async!//maps.google.com/maps/api/js?sensor=false
         infowindow.open(map, marker);
         jQuery("#inquiry").submit(function(){
             jQuery.ajax({
-                url:"https://rich-hildred.rhcloud.com/Mailer/4953dc8bd6100c7fc61abb1",
+                url:"https://rich-hildred.rhcloud.com/Mailer/42e340db2a35b5136d587c035",
                 dataType:"json",
                 data: jQuery("#inquiry").serialize()
             }).done(function(oResponse){
-                jQuery("#result").html(oResponse.result);
+                jQuery("#result").html("Thank you for your inquiry, we will get back to you shortly.");
                 jQuery('#inquiry').trigger("reset");
             }).fail(function(sHtml){
                 jQuery("#result").css("color", "red").html(sHtml);
