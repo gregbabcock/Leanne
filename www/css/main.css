@@ -23,6 +23,7 @@ body {
     padding-top: 0px;
     font-size: 44px;
     font-family: "trebuchet ms", sans-serif;
+    text-shadow: none;
 }
 .carousel h3 {
     margin: 0;
@@ -30,6 +31,7 @@ body {
     padding-top: 10px;
     font-size: 32px;
     font-family: "trebuchet ms", sans-serif;
+    text-shadow: none;
 }
 .carousel p {
     margin: 0;
@@ -37,6 +39,7 @@ body {
     padding-top: 10px;
     font-size: 14px;
     font-family: ""Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-shadow: none;
 }
 .item {
     background: #ffffff;
