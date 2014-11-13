@@ -188,7 +188,7 @@
                 </table>
                 <br>
 
-                <div id="gmap_canvas" style="height:350px;width:600px;"></div>
+                <div id="gmap_canvas" style="height:350px;width:100%;"></div>
                 <style>
                     #gmap_canvas img {
                         float: left;
@@ -199,11 +199,11 @@
 
                 <h3>Have a question?</h3>
                 <form id="inquiry">
-                    <input type="email" name="email" placeholder="Reply email address" />
+                    <input type="email" name="email" placeholder="Reply email address" required/>
                     <br />
-                    <input type="text" name="subject" placeholder="Subject of your inquiry" />
+                    <input type="text" name="subject" placeholder="Subject of your inquiry" required/>
                     <br />
-                    <textarea name="message" placeholder="Your Inquiry"></textarea>
+                    <textarea name="message" placeholder="Your Inquiry" required></textarea>
                     <br />
                     <input type="submit" value="Send" class="btn btn-primary btn-md" />
                     <input type="reset" value="Reset" class="btn btn-primary btn-md" />
