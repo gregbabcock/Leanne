@@ -5,7 +5,8 @@ define(["jquery", "bootstrap", "async!//maps.google.com/maps/api/js?sensor=false
             var myOptions = {
                 zoom: 14,
                 center: new google.maps.LatLng(43.2579005, -79.8547259),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                scrollwheel: false
             };
         } catch (error) {}
         try {
