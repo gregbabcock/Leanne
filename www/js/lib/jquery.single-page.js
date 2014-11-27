@@ -24,6 +24,14 @@ define(["jquery", "triggeranalytics", "bootstrap", "history"], function (jQuery,
             }
         });
 
+        //do scroll to top widget
+        jQuery("body").on("click", ".scrollToTop", function(){
+            jQuery('html, body').stop().animate({
+                scrollTop: 0
+            }, 1200);
+            return false;
+        });
+
         function toggleHeader(bFixed) {
             if (typeof bFixed == "undefined") bFixed = false;
             stickyHeader.width(stickyHeader.parent().width());
@@ -33,11 +41,13 @@ define(["jquery", "triggeranalytics", "bootstrap", "history"], function (jQuery,
                     position: 'fixed',
                     top: '0px'
                 });
+                jQuery(".scrollToTop").show();
             } else if (nTop <= stickyHeaderTop && stickyHeader.css("position") == "fixed") {
                 stickyHeader.css({
                     position: 'static',
                     top: '0px'
                 });
+                jQuery(".scrollToTop").hide();
             }
             return nTop;
 
