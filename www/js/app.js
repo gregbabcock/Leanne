@@ -12,7 +12,8 @@ requirejs.config({
         "underscore": "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min"
     },
     shim: {
-        "bootstrap" : { "deps" :['jquery'] }
+        "bootstrap" : { "deps" :['jquery'] },
+        "history" : { "deps" :['jquery'] }
     }
 });
 
