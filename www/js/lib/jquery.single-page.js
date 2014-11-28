@@ -1,12 +1,39 @@
-define(["jquery", "bootstrap", "history"], function (jQuery) {
+define(["jquery", "triggeranalytics", "bootstrap", "history"], function (jQuery, analytics) {
     jQuery.fn.singlePage = function () {
         // Check the initial Position of the Sticky Header
         var stickyHeader = this;
         var stickyHeaderTop = stickyHeader.offset().top;
         var stickyHeaderHeight = this.outerHeight(true);
 
+        // set the outline around the anchors in stickyheader off
+        stickyHeader.find("a").css("outline", "none");
+
+        // make youtube iframe show behind sticky header
+        $('iframe').each(function () {
+            var url = jQuery(this).attr("src");
+            if (url.indexOf("?") > 0) {
+                jQuery(this).attr({
+                    "src": url + "&wmode=transparent",
+                    "wmode": "Opaque"
+                });
+            } else {
+                jQuery(this).attr({
+                    "src": url + "?wmode=transparent",
+                    "wmode": "Opaque"
+                });
+            }
+        });
+
+        //do scroll to top widget
+        jQuery("body").on("click", ".scrollToTop", function(){
+            jQuery('html, body').stop().animate({
+                scrollTop: 0
+            }, 1200);
+            return false;
+        });
+
         function toggleHeader(bFixed) {
-            if(typeof bFixed == "undefined")bFixed = false;
+            if (typeof bFixed == "undefined") bFixed = false;
             stickyHeader.width(stickyHeader.parent().width());
             var nTop = jQuery(window).scrollTop();
             if (bFixed || (nTop > stickyHeaderTop && stickyHeader.css("position") != "fixed")) {
@@ -14,11 +41,13 @@ define(["jquery", "bootstrap", "history"], function (jQuery) {
                     position: 'fixed',
                     top: '0px'
                 });
-            } else if (nTop <= stickyHeaderTop && stickyHeader.css("position") == "fixed"){
+                jQuery(".scrollToTop").show();
+            } else if (nTop <= stickyHeaderTop && stickyHeader.css("position") == "fixed") {
                 stickyHeader.css({
                     position: 'static',
                     top: '0px'
                 });
+                jQuery(".scrollToTop").hide();
             }
             return nTop;
 
@@ -54,7 +83,7 @@ define(["jquery", "bootstrap", "history"], function (jQuery) {
         };
 
         stickyHeader.find('a').click(function () {
-            var nOffset = stickyHeaderHeight;
+            var nOffset = stickyHeaderHeight - 1;
             var sHash = jQuery(this).attr('href');
             var nDivOffset = jQuery(sHash).offset().top;
             var bFixed = stickyHeader.css('position') == "fixed";
@@ -62,8 +91,8 @@ define(["jquery", "bootstrap", "history"], function (jQuery) {
             if (!bFixed) nOffset *= 2;
             //Animate
             jQuery('html, body').stop().animate({
-                scrollTop:  nDivOffset - nOffset
-            }, 2200);
+                scrollTop: nDivOffset - nOffset
+            }, 1200);
             History.pushState(null, null, sHash);
             return false;
         });
@@ -78,6 +107,6 @@ define(["jquery", "bootstrap", "history"], function (jQuery) {
         require(["index.html"], function (page) {
             if (typeof page !== 'undefined') page();
         });
-
+        analytics();
     };
 });

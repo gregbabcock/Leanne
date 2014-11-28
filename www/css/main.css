@@ -1,7 +1,7 @@
 @import url('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css');
-body {
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+ body {
     margin: 0 auto;
-
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5em;
@@ -10,12 +10,12 @@ body {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
 }
 .carousel-control.right {
-    background-color: #ffffff
-.mycarousel {
-    background-color: #ffffff
+    background-color: #ffffff .mycarousel {
+        background-color: #ffffff
+    }
 }
-}
-#home {padding: 0em 1em 0em;
+#home {
+    padding: 0em 1em 0em;
 }
 .carousel h2 {
     margin: 0;
@@ -46,22 +46,44 @@ body {
     text-align: center;
     height: 140px !important;
 }
-
-.navbar{background-color: #ffffff}
-
+.navbar {
+    background-color: #ffffff
+}
 input[type*="text"],
 input[type*="email"],
 textarea {
     width: 100%;
 }
 #mycarousel {
-    clear:left;
+    clear: left;
 }
-.center
-{
-	float: center;
+.center {
+    float: center;
 }
 .navbar-nav.navbar-right:last-child {
-margin-right: 0;
+    margin-right: 0;
 }
-
+a.scrollToTop {
+    width: 100px;
+    height: 130px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Roboto Condensed', 'tahoma', 'Verdana', 'Geneva', sans-serif;
+    font-size: 13px;
+    background: url('../images/uparrow.png') no-repeat center center;
+    font-weight: none;
+    color: #444;
+    text-decoration: none;
+    position: fixed;
+    top: 75px;
+    right: 1px;
+    display: none;
+    -webkit-transition: 3s;
+    -moz-transition: 3s;
+    transition: 3s;
+    cursor: pointer;
+    z-index: 8;
+}
+.scrollToTop:hover {
+    text-decoration: none;
+}
