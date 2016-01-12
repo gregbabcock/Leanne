@@ -4,7 +4,7 @@ define(["jquery", "bootstrap", "async!//maps.google.com/maps/api/js?sensor=false
             jQuery(".carousel").carousel();
             var myOptions = {
                 zoom: 14,
-                center: new google.maps.LatLng(43.2579005, -79.8547259),
+                center: new google.maps.LatLng(43.2571, -79.8589),
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 scrollwheel: false
             };
@@ -13,10 +13,10 @@ define(["jquery", "bootstrap", "async!//maps.google.com/maps/api/js?sensor=false
             map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);
             marker = new google.maps.Marker({
                 map: map,
-                position: new google.maps.LatLng(43.2579005, -79.8547259)
+                position: new google.maps.LatLng(43.2571, -79.8589)
             });
             infowindow = new google.maps.InfoWindow({
-                content: "<b>Greg Babcock</b><br/>163 Victoria Ave N<br/>L8L 5E9 Hamilton, ON"
+                content: "<b>Greg Douglas</b><br/>173 Victoria Ave<br/>L8L 5E7 Hamilton, ON"
             });
             google.maps.event.addListener(marker, "click", function () {
                 infowindow.open(map, marker);
